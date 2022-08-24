@@ -39,6 +39,7 @@
 
                 {% get_plugins_main_menus as plugin_menus %}
                 {% for menu in plugin_menus %}
+                <!--
                     <li>
                         <a href="{{menu.link}}"><i class="{{menu.css_icon}}"></i> {{menu.label}}{% if menu.has_submenu %}<span class="fa arrow"></span>{% endif %}</a>
 
@@ -52,6 +53,8 @@
                             </ul>
                         {% endif %}
                     </li>
+
+                -->
                 {% endfor %}
 
                 {% if view_nodes %}
@@ -74,6 +77,35 @@
                 </li>
                 {% endif %}
 
+                {% if user.is_staff %}
+                <li>
+                    <a href="#"><i class="fa fa-cogs fa-fw"></i> {% trans 'Administration' %}<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        {% is_single_user_mode as hide_users %}
+                        {% if not hide_users %}
+                        <li>
+                            <a href="/admin/auth/user/"><i class="fa fa-user fa-fw"></i> {% trans 'Accounts' %}</a>
+                        </li>
+                        <li>
+                            <a href="/admin/auth/group/"><i class="fa fa-users fa-fw"></i> {% trans 'Groups' %}</a>
+                        </li>
+                        {% endif %}
+
+                        <li>
+                            <a href="{% url 'admin:app_setting_change' SETTINGS.id %}"><i class="fa fa-magic fa-fw"></i> {% trans 'Brand' %}</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'admin:app_theme_change' SETTINGS.theme.id %}"><i class="fa fa-paint-brush fa-fw"></i> {% trans 'Theme' %}</a>
+                        </li>
+                        <li>
+                            <a href="/admin/app/plugin/"><i class="fa fa-plug fa-fw"></i> {% trans 'Plugins' %}</a>
+                        </li>
+                        <li>
+                            <a href="/admin/app/"><i class="fa fa-cog fa-fw"></i> {% trans 'Application' %}</a>
+                        </li>
+                    </ul>
+                </li>
+                {% endif %}
 
 
                 {% is_dev_mode as dev_mode %}
