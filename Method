@@ -1,0 +1,18 @@
+go to any perticular directory
+do : 
+
+  Run sudo apt-get update
+  Run sudo apt-get upgrade
+  Run sudo apt-get install docker-compose
+  Run sudo apt-get install python-pip
+  Run git clone https://github.com/OpenDroneMap/WebODM --config core.autocrlf=input --depth 1
+  cd WebODM (Linux is case sensitive)
+  
+Reseting : 
+
+      rm -r WebODM
+      docker system prune -a --volumes
+      git clone https://github.com/zinyubi/WebODM --config core.autocrlf=input --depth 1
+      sudo ./webodm.sh rebuild
+      sudo ./webodm.sh START
+      
