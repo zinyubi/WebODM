@@ -16,3 +16,5 @@ Reseting :
       sudo ./webodm.sh rebuild
       sudo ./webodm.sh START
       
+      
+      Location cd /home/ubuntu/
