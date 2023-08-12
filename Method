@@ -15,6 +15,9 @@ Reseting :
       git clone https://github.com/zinyubi/WebODM --config core.autocrlf=input --depth 1
       sudo ./webodm.sh rebuild
       sudo ./webodm.sh START
+
+For Output :
+      ./webodm.sh restart --media-dir /home/user/webodm_data
       
       
       Location cd /home/ubuntu/
